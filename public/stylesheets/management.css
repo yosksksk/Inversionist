@@ -1,0 +1,102 @@
+* {
+  font-family: Helvetica , "游ゴシック" , "Yu Gothic" , sans-serif;
+}
+
+body {
+  color:#7F8289;
+  font-weight:300;
+  font-size:16px;
+  font-family: Helvetica , "游ゴシック" , "Yu Gothic" , sans-serif;
+  line-height:28px;
+  width: 100%;
+  background-image: url(/images/16.jpg); 
+  background-size:cover;
+}
+
+nav{
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+nav li{
+  float: left;
+  list-style-type: none; 
+}
+
+nav a{
+  text-decoration: none;
+  color: #fff;
+  padding: 8px;
+  display: block;
+  transition: 0.5s;
+}
+
+nav a:hover{
+  background: #fff;
+  color: #ff4c4c;
+}
+
+.container{
+  width: 800px;
+  margin: 0 auto;
+}
+
+
+h1 {
+  font-size:15px;
+  width:350px;
+  margin-bottom:5px;
+}
+
+p {
+  font-size:12px;
+  margin-bottom:5px;
+}
+
+p.card-text {
+ margin: 0 auto 1rem; 
+}
+
+
+.login {
+  background-image: url(/images/16.jpg); 
+  background-size:cover;
+}
+
+.title p{
+  margin: 0 auto;
+}
+
+.title a{
+  margin: 0 auto;
+  padding : 20px;
+  padding-top: 10px;
+}
+
+.navbar-nav{
+    margin: 0 auto;
+    display: table;
+    float: right;
+}
+
+.form{
+  border-radius: 20px;
+  background: white;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.navbar-brand{
+  font-weight: bold;
+  color: white;
+}
+
+.top{
+  margin: 0 auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 600px;
+}
+

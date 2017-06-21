@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Inversionist Check Record</title>
+    <link rel="stylesheet" href="/stylesheets/management.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/Smoothness/jquery-ui.css" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+        <script>
+      $(function() {
+        $("#datepicker").datepicker();
+      });
+    </script>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+    <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>    
+</head>
+
+<body>
+    <div class="header">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <p class="navbar-brand" style="font-size: 20px;">Inversionist</p>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#">About</a></li>
+                    <li><a href="/usermain">My Page</a></li>
+                    <li><a href="/hwregister">Register</a></li>
+                    <li><a href="/howmuch">Record</a></li>
+                    <li><a href="/signout">Logout</a></li>
+                    <li><a href="http://life-is-tech.com"　target=”_blank”>Life is Tech!</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <div class="top" align="center" valign="top" style="margin: 20px auto;">        
+        <h3>check your process of <%= @homework.object %>.</h3>
+        <h3><%= @percentage %>% complete!</h3>
+    </div>
+    
+    <div class="container" style="padding: 20px;">
+        <% if (@percentage) <= 25 %>
+            <progress class="progress progress-danger progress-striped progress-animated" value="<%= @percentage %>" max="100"><%= @percentage %>%</progress>
+        <% elsif 25 < (@percentage) && (@percentage) <= 50 %>
+            <progress class="progress progress-warning progress-striped progress-animated" value="<%= @percentage %>" max="100"><%= @percentage %>%</progress>
+        <% elsif 50 < (@percentage) && (@percentage) <= 75 %>
+            <progress class="progress progress-info progress-striped progress-animated" value="<%= @percentage %>" max="100"><%= @percentage %>%</progress>
+        <% else %>
+            <progress class="progress progress-success progress-striped progress-animated" value="<%= @percentage %>" max="100"><%= @percentage %>%</progress>
+        <% end %>
+    </div>
+    
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>宿題をした日</th>
+                    <th>ページ数</th>
+                    <th>機能</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @records.each do |record| %>
+                <tr>
+                    <th><%= record.date %></th>
+                    <td><%= record.rpage %>ページ</td>
+                    <td>
+                        <div class="edit">
+                            <button type="button" class="btn btn-warning" onclick="location.href='/edit/rc/<%= record.id %>'" style="float:left;">編集</button>
+                            <button type="button" class="btn btn-danger" onclick="location.href='/delete/rc/<%= record.id %>'">削除</button>
+                        </div>
+                    </td>
+                </tr>
+                <% end %>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>合計</th>
+                    <th><%= @sum %>ページ</th>
+                    <th></th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <a href="/usermain" class="btn btn-info" style="margin: 20px;">メインページに戻る</a>
+    </main>
+    
+    <div class="footer">
+            <p class="copylight" align="center" valign="top" style="margin: 20px auto;">&copy;2016 Yoshiki Nishioka</p>
+    </div>
+
+</body>
+</html>

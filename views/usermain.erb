@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>User Home</title>
+    <link rel="stylesheet" href="/stylesheets/management.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/Smoothness/jquery-ui.css" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+        <script>
+      $(function() {
+        $("#datepicker").datepicker();
+      });
+    </script>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+    <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>    
+</head>
+
+<body>
+    <div class="header">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <p class="navbar-brand" style="font-size: 20px;">Inversionist</p>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#">About</a></li>
+                    <li><a href="/usermain">My Page</a></li>
+                    <li><a href="/hwregister">Register</a></li>
+                    <li><a href="/howmuch">Record</a></li>
+                    <li><a href="/signout">Logout</a></li>
+                    <li><a href="http://life-is-tech.com"　target=”_blank”>Life is Tech!</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <% unless session[:user] %>
+    <div class="main" align="center" valign="top" style="margin: 20px auto;">
+        <h4>メールアドレスまたはパスワードが間違っています。</h4>
+        <a href="/" style="margin: 50px;">ログインまたは新規登録はこちら</a>
+    </div>
+    
+    <div class="footer">
+        <p class="copylight" align="center" valign="top" style="margin: 20px auto;">&copy;2016 Yoshiki Nishioka</p>
+    </div>
+    
+    <% else %>
+    <div class="main">
+        <div class="top" align="center" valign="top" style="margin: 20px auto;">
+            <h2><%= User.find(session[:user]).username %>さん、にんにちは。</h2><br>
+            <h4>本日は<%= @today %>です。</h4><br>
+            <div>
+                <button type="button" onclick="location.href='/hwregister'" class="btn btn-success">宿題の新規登録へ</button>
+                <button type="button" onclick="location.href='/howmuch'" class="btn btn-success">やった宿題を記録する</button>
+            </div>        
+        </div>
+        
+        <div style="padding: 20px;">
+            <div class="row">
+                <% unless @homeworks.empty? %>
+                    <% @homeworks.each do |homework| %>
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-header text-xs-center">
+                                <h3><%= homework.category.try(:name) %></h3>
+                            </div>
+                            <div class="card-block text-xs-center">
+                                <h2 class="card-text" style="color:skyblue;"><%= homework.object %></h2>
+                                <p class="card-text">合計:<%= homework.page %>ページ</p>
+                                <p class="card-text">開始:<%= homework.start_day %></p>
+                                <p class="card-text">期限:<%= homework.deadline %></p>
+                                <p class="card-text">進捗:<a href="/checkrc/<%= homework.id %>" deta-toggle="tooltip" title="宿題の記録の確認"><%= yesterday_sum_page_homework(homework) %>ページ(<%= percentage(yesterday_sum_page_homework(homework), homework.page) %>%)</a></p>
+                                <script>
+                                    $(function(){
+                                        $("[deta-toggle = tooltip]").tooltip({
+                                            placement: 'bottom';
+                                        });
+                                    });
+                                </script>
+                                <% require 'date' %>
+                                <% if  remain_day(homework.start_day) <= 0 %>
+                                    <p class="card-text">残り:<%= remain_day(homework.deadline).to_i %>日</h4>
+                                <% else %>
+                                    <p class="card-text">残り:<%= start_dead(homework.deadline, homework.start_day).to_i %>日</p>
+                                <% end %>
+                                <% if yesterday(homework.start_day) > 0 %>
+                                    <p class="card-text">ズレ:<%= error_value(default_should_pace(homework.page, homework.deadline, homework.start_day), yesterday(homework.start_day) ,yesterday_sum_page_homework(homework) ) %>ページ</p>
+                                <% else %>
+                                    <p class="card-text">ズレ:<%= yesterday_sum_page_homework(homework) %>ページ</p>
+                                <% end %>
+                                <% if remain_day(homework.deadline) > 0 %>
+                                    <p class="card-text">１日:<%= now_should_pace(remain_page(homework.page, yesterday_sum_page_homework(homework)), remain_day(homework.deadline)) %>ページ</p>
+                                <% else %>
+                                    <p class="card-text">締め切りを過ぎています。</p>
+                                <% end %>
+                                <div class="edit">
+                                    <button type="button" class="btn btn-warning card-link" onclick="location.href='/edit/hw/<%= homework.id %>'">編集</button>
+                                    <button type="button" class="btn btn-danger card-link" onclick="location.href='/delete/hw/<%= homework.id %>'">削除</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+            <p class="copylight" align="center" valign="top" style="margin: 20px auto;">&copy;2016 Yoshiki Nishioka</p>
+    </div>
+    
+    <% end %>
+
+</body>
+</html>

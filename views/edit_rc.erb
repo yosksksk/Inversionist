@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Inversionist Edit Record</title>
+    <link rel="stylesheet" href="/stylesheets/management.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/Smoothness/jquery-ui.css" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+        <script>
+      $(function() {
+        $("#datepicker").datepicker();
+      });
+    </script>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+    <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>    
+</head>
+
+<body>
+    <div class="header">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <p class="navbar-brand" style="font-size: 20px;">Inversionist</p>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#">About</a></li>
+                    <li><a href="/usermain">My Page</a></li>
+                    <li><a href="/hwregister">Register</a></li>
+                    <li><a href="/howmuch">Record</a></li>
+                    <li><a href="/signout">Logout</a></li>
+                    <li><a href="http://life-is-tech.com"　target=”_blank”>Life is Tech!</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="main" align="center" valign="top" style="margin: 20px auto;">
+        <h4 style="padding-bottom: 20px;">記録を編集しましょう。</h4>
+        <form action="/renew/rc/<%= @record.id %>" method="post" class="form">
+            <div class="form-group">
+                <label>ページ</label>
+                <input type="text" name="rpage" placeholder="ページ数" value="<%= @record.rpage %>" class="form-control" required><br>
+            </div>
+            <div class="form-group">
+                <label>記録日</label>
+                <input type="date" name="date" placeholder="記録日" value="<%= @record.date %>" id="datepicker" class="form-control" required><br>
+            </div>
+            <input type="submit" value="変更を保存する" class="btn btn-primary"><br>
+            <a href="/usermain" class="btn btn-info" style="margin: 20px;">メインページに戻る</a>
+        </form>
+    </div>
+
+    <div class="footer">
+            <p class="copylight" align="center" valign="top" style="margin: 20px auto;">&copy;2016 Yoshiki Nishioka</p>
+    </div>
+    
+</body>
+</html>
