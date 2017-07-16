@@ -1,4 +1,4 @@
-class CreateRecord < ActiveRecord::Migration
+class CreateRecord < ActiveRecord::Migration[4.2]
   def change
     create_table :records do |t|
       t.string :rsubject
