@@ -10,14 +10,11 @@ gem 'cloudinary'
 
 gem 'bcrypt'
 
-gem 'sqlite3'
-
 gem 'dotenv'
 
 group :development do
   gem 'sqlite3'
 end
-
 
 group :production do
   gem 'pg'
