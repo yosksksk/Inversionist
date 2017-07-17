@@ -27,8 +27,8 @@ end
 
 post '/signup' do
     @user = User.create(
-        username: params[:username], 
-        mail: params[:mail], 
+        username: params[:username],
+        mail: params[:mail],
         password: params[:password],
         password_confirmation: params[:password_confirmation]
     )
@@ -68,9 +68,9 @@ end
 
 post '/hwregister' do
     @homework = Homework.create(
-        category_id: params[:category], 
-        object: params[:object], 
-        page: params[:page], 
+        category_id: params[:category],
+        object: params[:object],
+        page: params[:page],
         user_id: session[:user],
         start_day: params[:start_day],
         deadline: params[:deadline]
@@ -138,53 +138,53 @@ post '/renew/rc/:id' do
 
     @record.rpage = params[:rpage]
     @record.date = params[:date]
-    
+
     @record.save
-    
+
     redirect '/usermain'
 end
 
 helpers do
-    
+
     def remain_day(deadline)
         result = Date.new(*deadline.split('-').map(&:to_i)) - Date.today + 1
         return result
     end
-    
+
     def start_dead(deadline, start_day)
         result = Date.new(*deadline.split('-').map(&:to_i)) - Date.new(*start_day.split('-').map(&:to_i)) + 1
         return result
     end
-    
+
     def default_should_pace(page, deadline, start_day)
         result = ((page / (Date.new(*deadline.split('-').map(&:to_i)) - Date.new(*start_day.split('-').map(&:to_i)) + 1 ).to_f).to_f.round(2))
         return result
-    end 
-  
+    end
+
     def yesterday(start_day)
         result = Date.today - Date.new(*start_day.split('-').map(&:to_i))
         return result
-    end 
-    
+    end
+
     def yesterday_sum_page_homework(homework)
         homework.records.sum(:rpage)
     end
-    
+
     def error_value(a, b, c)
         result = (a * b - c).to_f.round(3)
         return result
     end
-    
+
     def remain_page(a, b)
-        result = a - b 
+        result = a - b
         return result
     end
-    
+
     def now_should_pace(a, b)
         result = (a / b).to_f.round(1)
         return result
     end
-    
+
     def percentage(a,b)
         result = 100 * a / b
         return result

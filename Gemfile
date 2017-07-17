@@ -6,10 +6,7 @@ gem 'sinatra-contrib'
 gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'nokogiri'
-gem 'cloudinary'
-
 gem 'bcrypt'
-
 gem 'dotenv'
 
 group :development do
@@ -17,5 +14,5 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
+  gem 'postgresql'
 end
