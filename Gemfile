@@ -6,10 +6,7 @@ gem 'sinatra-contrib'
 gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'nokogiri'
-gem 'cloudinary'
-
 gem 'bcrypt'
-
 gem 'dotenv'
 
 group :development do
