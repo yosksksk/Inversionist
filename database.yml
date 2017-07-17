@@ -1,7 +1,11 @@
 development:
-  adapter: sqlite3
-  database: db/development.db
+  adapter: postgresql
+  database: db/development
+  pool: 5
+  timeout: 5000
 
 production:
-  adapter: pg
-  database: db/production.pg
+  adapter: postgresql
+  database: db/production
+  pool: 5
+  timeout: 5000
