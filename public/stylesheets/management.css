@@ -9,7 +9,7 @@ body {
   font-family: Helvetica , "游ゴシック" , "Yu Gothic" , sans-serif;
   line-height:28px;
   width: 100%;
-  background-image: url(/images/16.jpg); 
+  background-image: url(/images/16.jpg);
   background-size:cover;
 }
 
@@ -20,7 +20,7 @@ nav{
 
 nav li{
   float: left;
-  list-style-type: none; 
+  list-style-type: none;
 }
 
 nav a{
@@ -54,12 +54,12 @@ p {
 }
 
 p.card-text {
- margin: 0 auto 1rem; 
+ margin: 0 auto 1rem;
 }
 
 
 .login {
-  background-image: url(/images/16.jpg); 
+  background-image: url(/images/16.jpg);
   background-size:cover;
 }
 
@@ -99,4 +99,3 @@ p.card-text {
   border-radius: 10px;
   max-width: 600px;
 }
-
