@@ -35,7 +35,7 @@ post '/signup' do
     if @user.persisted?
         session[:user] = @user.id
     end
-    redirect '/'
+    redirect '/usermain'
 end
 
 get '/signout' do
@@ -145,7 +145,6 @@ post '/renew/rc/:id' do
 end
 
 helpers do
-
     def remain_day(deadline)
         result = Date.new(*deadline.split('-').map(&:to_i)) - Date.today + 1
         return result

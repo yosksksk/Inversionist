@@ -1,80 +1,36 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="utf-8">
-    <title>Inversionist Register</title>
-    <link rel="stylesheet" href="/stylesheets/management.css">
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/Smoothness/jquery-ui.css" >
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
-        <script>
-      $(function() {
-        $("#datepicker").datepicker();
-      });
-    </script>
-    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
-    <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
-    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>    
-</head>
+<div class="main" style="margin: auto;" align="center" valign="top">
+    <h4 style="padding-bottom: 20px;">please register your homeworks.</h4>
+    <form action="/hwregister" method="post" class="form">
+        <div class="form-group">
+            <label>教科</label>
+            <select name="category" class="form-control">
+                <% @categories.each do |category| %>
+                    <option value="<%= category.id %>"><%= category.name %></option>
+                <% end %>
+            </select>
+            <br>
+        </div>
+        <div class="form-group">
+            <label>教材</label>
+            <input type="text" name="object" placeholder="教材名" class="form-control" required><br>
+        </div>
+        <div class="form-group">
+            <label>ページ数</label>
+            <input type="text" name="page" placeholder="ページ数" class="form-control" required><br>
+        </div>
+        <div class="form-group">
+            <label>開始日</label>
+            <input type="date" name="start_day" placeholder="開始日"  id="datepicker" class="form-control" required><br>
+        </div>
+        <div class="form-group">
+            <lalbel>期限</label>
+            <input type="date" name="deadline" placeholder="期限"  id="datepicker" class="form-control" required><br>
+        </div>
+        <input type="submit" value="登録" class="btn btn-primary"><br>
+         <a href="/usermain" class="btn btn-info" style="margin: 20px">メインページに戻る</a>
+    </form>
+</div>
 
-<body>
-    <div class="header">
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <p class="navbar-brand" style="font-size: 20px;">Inversionist</p>
-                </div>
-                <ul class="nav navbar-nav">
-                <ul class="nav navbar-nav">
-                    <li><a href="#">About</a></li>
-                    <li><a href="/usermain">My Page</a></li>
-                    <li><a href="/hwregister">Register</a></li>
-                    <li><a href="/howmuch">Record</a></li>
-                    <li><a href="/signout">Logout</a></li>
-                    <li><a href="http://life-is-tech.com"　target=”_blank”>Life is Tech!</a></li>
-                </ul>
-                </ul>
-            </div>
-        </nav>
-    </div>
-        
-    <div class="main" style="margin: auto;" align="center" valign="top">
-        <h4 style="padding-bottom: 20px;">please register your homeworks.</h4>
-        <form action="/hwregister" method="post" class="form">
-            <div class="form-group">
-                <label>教科</label>
-                <select name="category" class="form-control">
-                    <% @categories.each do |category| %>
-                        <option value="<%= category.id %>"><%= category.name %></option>
-                    <% end %>
-                </select>
-                <br>
-            </div>
-            <div class="form-group">
-                <label>教材</label>
-                <input type="text" name="object" placeholder="教材名" class="form-control" required><br>
-            </div>
-            <div class="form-group">
-                <label>ページ数</label>
-                <input type="text" name="page" placeholder="ページ数" class="form-control" required><br>
-            </div>
-            <div class="form-group">
-                <label>開始日</label>
-                <input type="date" name="start_day" placeholder="開始日"  id="datepicker" class="form-control" required><br>
-            </div>
-            <div class="form-group">
-                <lalbel>期限</label>
-                <input type="date" name="deadline" placeholder="期限"  id="datepicker" class="form-control" required><br>
-            </div>
-            <input type="submit" value="登録" class="btn btn-primary"><br>
-             <a href="/usermain" class="btn btn-info" style="margin: 20px">メインページに戻る</a>
-        </form>
-    </div>
-    
-    <div class="footer">
-        <p class="copylight" align="center" valign="top" style="margin: 20px auto;">&copy;2016 Yoshiki Nishioka</p>
-    </div>
-
-</body>
-</html>
+<div class="footer">
+    <p class="copylight" align="center" valign="top" style="margin: 20px auto;">&copy;2016 Yoshiki Nishioka</p>
+</div>

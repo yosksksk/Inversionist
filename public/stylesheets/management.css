@@ -99,3 +99,11 @@ p.card-text {
   border-radius: 10px;
   max-width: 600px;
 }
+
+.box{
+  display: inline;
+}
+
+.container-fluid ul li{
+  display: inline;
+}

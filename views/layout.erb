@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Inversionist</title>
+    <link rel="stylesheet" href="/stylesheets/management.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/Smoothness/jquery-ui.css" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+        <script>
+      $(function() {
+        $("#datepicker").datepicker();
+      });
+    </script>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+    <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+  </head>
+  <body>
+    <% if session[:user] %>
+      <div class="header">
+          <nav class="navbar navbar-inverse">
+              <div class="container-fluid">
+                  <div class="navbar-header">
+                      <p class="navbar-brand" style="font-size: 20px;">Inversionist</p>
+                  </div>
+                  <ul class="nav navbar-nav">
+                      <li class="box"><a href="/usermain">My Page</a></li>
+                      <li class="box"><a href="/hwregister">Register</a></li>
+                      <li class="box"><a href="/howmuch">Record</a></li>
+                      <li class="box"><a href="/signout">Logout</a></li>
+                  </ul>
+              </div>
+          </nav>
+      </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
