@@ -13,9 +13,9 @@ gem 'bcrypt'
 gem 'dotenv'
 
 group :development do
-  gem 'sqlite3'
+  gem 'postgresql'
 end
 
 group :production do
-  gem 'pg'
+  gem 'postgresql'
 end
