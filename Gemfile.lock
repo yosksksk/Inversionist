@@ -25,8 +25,6 @@ GEM
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
     pg (0.21.0)
-    postgresql (1.0.0)
-      pg
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
@@ -60,7 +58,7 @@ DEPENDENCIES
   bcrypt
   dotenv
   nokogiri
-  postgresql
+  pg
   rake
   sinatra
   sinatra-activerecord
