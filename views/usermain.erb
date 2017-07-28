@@ -1,7 +1,7 @@
 <% unless session[:user] %>
-<div class="main" align="center" valign="top" style="margin-left: 20px; margin-right: 20px; margin-top: 150px;">
+<div class="main error" align="center" valign="top">
     <h4>メールアドレスまたはパスワードが間違っています。</h4>
-    <a href="/" style="margin: 50px;">ログインまたは新規登録はこちら</a>
+    <a href="/">ログインまたは新規登録はこちら</a>
 </div>
 
 <% else %>

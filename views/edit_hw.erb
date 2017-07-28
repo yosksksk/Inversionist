@@ -1,6 +1,6 @@
 <div class="main" align="center" valign="top">
-    <h4 style="padding-bottom: 20px;"><%= @homework.object %>を編集する。</h4>
-    <form action="/renew/hw/<%= @homework.id %>" method="post" style="margin: 30px;" class="form">
+    <h4><%= @homework.object %>を編集する。</h4>
+    <form action="/renew/hw/<%= @homework.id %>" method="post" class="form">
         <div class="form-group">
             <label>教科</label>
             <select name="category" class="form-control">
@@ -31,6 +31,6 @@
         </div>
         <br>
         <input type="submit" value="変更を保存する" class="btn btn-primary"><br>
-        <a href="/usermain" class="btn btn-info" style="margin: 20px;">メインページに戻る</a>
+        <a href="/usermain" class="btn btn-info">メインページに戻る</a>
     </form>
 </div>

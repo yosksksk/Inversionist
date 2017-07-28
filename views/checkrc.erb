@@ -1,9 +1,9 @@
-<div class="top" align="center" valign="top" style="margin: 20px auto;">
+<div class="top" align="center" valign="top">
     <h3><%= @homework.object %>の宿題の進捗を確認する。</h3>
     <h3><%= @percentage %>% 進んでいます!</h3>
 </div>
 
-<div class="container" style="padding: 20px;">
+<div class="container card_record">
     <% if (@percentage) <= 25 %>
         <progress class="progress progress-danger progress-striped progress-animated" value="<%= @percentage %>" max="100"><%= @percentage %>%</progress>
     <% elsif 25 < (@percentage) && (@percentage) <= 50 %>
@@ -31,7 +31,7 @@
                 <td><%= record.rpage %>ページ</td>
                 <td>
                     <div class="edit">
-                        <button type="button" class="btn btn-warning" onclick="location.href='/edit/rc/<%= record.id %>'" style="float:left;">編集</button>
+                        <button type="button" class="btn btn-warning edit_btn" onclick="location.href='/edit/rc/<%= record.id %>'">編集</button>
                         <button type="button" class="btn btn-danger" onclick="location.href='/delete/rc/<%= record.id %>'">削除</button>
                     </div>
                 </td>
@@ -47,5 +47,5 @@
         </tfoot>
     </table>
 </div>
-<a href="/usermain" class="btn btn-info" style="margin: 20px;">メインページに戻る</a>
+<a href="/usermain" class="btn btn-info to_main">メインページに戻る</a>
 </main>

@@ -3,14 +3,13 @@
 }
 
 body {
-  color:#7F8289;
-  font-weight:300;
-  font-size:16px;
-  font-family: Helvetica , "游ゴシック" , "Yu Gothic" , sans-serif;
-  line-height:28px;
+  color: #7F8289;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 28px;
   width: 100%;
-  background-image: url(/images/gradation.jpg);
-  background-size:cover;
+  background-image: url(/assets/images/gradation.jpg);
+  background-size: cover;
 }
 
 nav{
@@ -78,6 +77,7 @@ p.card-text {
   max-width: 480px;
   margin: 0 auto;
   padding: 30px;
+
 }
 
 .navbar-brand{
@@ -93,10 +93,55 @@ p.card-text {
   max-width: 600px;
 }
 
+.main {
+  margin: 20px auto;
+}
+
 .box{
   display: inline;
 }
 
 .container-fluid ul li{
   display: inline;
+}
+
+
+.btn{
+  margin: 20px;
+}
+
+.main h4{
+  padding-bottom: 20px;
+}
+
+
+.main .to_main{
+  margin-top: 20px;
+}
+
+.footer{
+  margin: 230px auto;
+}
+
+.main_btn{
+  font-size: 20px;
+}
+
+.error{
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 150px;
+}
+
+.error a{
+  margin: 50px;
+}
+
+.card_record{
+  padding: 20px;
+}
+
+
+.edit_btn{
+  float: left;
 }

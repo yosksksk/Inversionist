@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Inversionist</title>
-    <link rel="stylesheet" href="/stylesheets/management.css">
+    <link rel="stylesheet" href="/assets/stylesheets/style.css">
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/Smoothness/jquery-ui.css" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
-        <script>
+    <script>
       $(function() {
         $("#datepicker").datepicker();
       });
@@ -37,8 +37,8 @@
     <% end %>
     <%= yield %>
 
-    <div class="footer">
-        <p class="copylight" align="center" valign="top" style="margin: 20px auto;">&copy;2016 Yoshiki Nishioka</p>
-    </div>
+    <footer>
+        <p class="copylight" align="center" valign="top">&copy;2016 Yoshiki Nishioka</p>
+    </footer>
   </body>
 </html>

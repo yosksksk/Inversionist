@@ -1,5 +1,5 @@
-<div class="main" style="margin: auto;" align="center" valign="top">
-    <h4 style="padding-bottom: 20px;">宿題の新規登録を行う。</h4>
+<div class="main" align="center" valign="top">
+    <h4>宿題の新規登録を行う。</h4>
     <form action="/hwregister" method="post" class="form">
         <div class="form-group">
             <label>教科</label>
@@ -26,7 +26,9 @@
             <lalbel>期限</label>
             <input type="date" name="deadline" placeholder="期限"  id="datepicker" class="form-control" required><br>
         </div>
-        <input type="submit" value="登録" class="btn btn-primary"><br>
-         <a href="/usermain" class="btn btn-info" style="margin: 20px">メインページに戻る</a>
+        <input type="submit" value="登録" class="btn btn-primary submit"><br>
+        <div class="to_main">
+         <a href="/usermain" class="btn btn-info to_main">メインページに戻る</a>
+       </div>
     </form>
 </div>
