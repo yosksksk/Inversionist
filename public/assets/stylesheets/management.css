@@ -9,7 +9,7 @@ body {
   font-family: Helvetica , "游ゴシック" , "Yu Gothic" , sans-serif;
   line-height:28px;
   width: 100%;
-  background-image: url(/images/16.jpg);
+  background-image: url(/images/gradation.jpg);
   background-size:cover;
 }
 
@@ -41,7 +41,6 @@ nav a:hover{
   margin: 0 auto;
 }
 
-
 h1 {
   font-size:15px;
   width:350px;
@@ -55,12 +54,6 @@ p {
 
 p.card-text {
  margin: 0 auto 1rem;
-}
-
-
-.login {
-  background-image: url(/images/16.jpg);
-  background-size:cover;
 }
 
 .title p{

@@ -19,22 +19,26 @@
   </head>
   <body>
     <% if session[:user] %>
-      <div class="header">
+      <header>
           <nav class="navbar navbar-inverse">
               <div class="container-fluid">
                   <div class="navbar-header">
-                      <p class="navbar-brand" style="font-size: 20px;">Inversionist</p>
+                      <a href="/usermain" class="navbar-brand" style="font-size: 20px; margin-right: 100px;">Inversionist</a>
+                      <ul class="nav navbar-nav" style="display: inline-block;">
+                          <li class="box"><a href="/usermain">マイページ</a></li>
+                          <li class="box"><a href="/hwregister">宿題の新規登録をする</a></li>
+                          <li class="box"><a href="/howmuch">宿題を記録する</a></li>
+                          <li class="box"><a href="/signout">ログアウト</a></li>
+                      </ul>
                   </div>
-                  <ul class="nav navbar-nav">
-                      <li class="box"><a href="/usermain">My Page</a></li>
-                      <li class="box"><a href="/hwregister">Register</a></li>
-                      <li class="box"><a href="/howmuch">Record</a></li>
-                      <li class="box"><a href="/signout">Logout</a></li>
-                  </ul>
               </div>
           </nav>
-      </div>
+      </header>
     <% end %>
     <%= yield %>
+
+    <div class="footer">
+        <p class="copylight" align="center" valign="top" style="margin: 20px auto;">&copy;2016 Yoshiki Nishioka</p>
+    </div>
   </body>
 </html>
